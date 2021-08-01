@@ -98,6 +98,9 @@ public class BrowserHelper {
     }
 
     public void selectAllText(WebElement element) {
-        element.sendKeys(Keys.chord(Keys.COMMAND + "A"));
+        if(OSType.DETECTED == OSType.MacOS)
+            element.sendKeys(Keys.chord(Keys.COMMAND + "A"));
+        if(OSType.DETECTED == OSType.Windows)
+            element.sendKeys(Keys.chord(Keys.CONTROL + "A"));
     }
 }
