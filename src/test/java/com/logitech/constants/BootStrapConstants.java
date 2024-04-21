@@ -13,4 +13,5 @@ public class BootStrapConstants {
     public static String IE_PATH = "webdriver.ie.driver";
 
     public static String PAGE_LOAD_WAIT = "pageLoadWait";
+
 }
