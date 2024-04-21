@@ -1,9 +1,11 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
 import com.logitech.helper.PropertyUtil;
 import com.logitech.pages.HomePage;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
@@ -16,21 +18,25 @@ import java.util.concurrent.TimeUnit;
 import static com.logitech.constants.BootStrapConstants.PAGE_LOAD_WAIT;
 import static com.logitech.constants.EnvironmentConstants.HEROKUAPP_URL;
 
+@ScenarioScoped
 public class HomeStepDef {
 
     private WebDriver driver;
 
+    @Inject
     private HomePage homePage;
 
+    @Inject
     private BrowserHelper browserHelper;
+
+    @Inject
+    DriverHelper helper;
 
     private Scenario scenario;
 
 
-    public HomeStepDef(HomePage homePage, DriverHelper helper, BrowserHelper browserHelper) {
+    public HomeStepDef() {
         this.driver = helper.getDriver();
-        this.homePage = homePage;
-        this.browserHelper = browserHelper;
     }
 
     @Before

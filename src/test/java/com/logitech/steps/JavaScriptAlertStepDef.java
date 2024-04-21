@@ -1,23 +1,24 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
 import com.logitech.pages.JavaScriptAlertsPage;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+@ScenarioScoped
 public class JavaScriptAlertStepDef {
 
+    @Inject
     private JavaScriptAlertsPage javaScriptAlertsPage;
 
+    @Inject
     private BrowserHelper browserHelper;
 
-    public JavaScriptAlertStepDef(JavaScriptAlertsPage javaScriptAlertsPage, BrowserHelper browserHelper){
-        this.javaScriptAlertsPage=javaScriptAlertsPage;
-        this.browserHelper=browserHelper;
-    }
 
     @Then("I click on {string} button")
     public void clickOnJsBtn(String btnName) {

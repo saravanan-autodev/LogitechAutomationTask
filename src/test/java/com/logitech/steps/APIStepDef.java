@@ -1,9 +1,11 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.DriverHelper;
 import com.logitech.helper.PropertyUtil;
 import com.logitech.helper.RestUtil;
 import com.logitech.helper.UrlUtil;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,6 +14,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
+import java.sql.Driver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -20,14 +23,18 @@ import static com.logitech.constants.BootStrapConstants.PAGE_LOAD_WAIT;
 import static com.logitech.constants.EnvironmentConstants.BANNERS_SERVICE;
 import static com.logitech.constants.EnvironmentConstants.NAUKRI_URL;
 
+@ScenarioScoped
 public class APIStepDef {
+
+    @Inject
+    DriverHelper driverHelper;
 
     private WebDriver driver;
 
     private Response response;
 
-    public APIStepDef(DriverHelper helper){
-        this.driver = helper.getDriver();
+    public APIStepDef(){
+        this.driver = driverHelper.getDriver();
     }
 
     @Given("I invoke Nakuri URL")

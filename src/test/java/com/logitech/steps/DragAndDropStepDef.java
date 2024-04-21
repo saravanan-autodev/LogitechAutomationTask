@@ -1,8 +1,10 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
 import com.logitech.pages.DragAndDropPage;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -10,23 +12,27 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
+@ScenarioScoped
 public class DragAndDropStepDef {
 
     private WebDriver driver;
 
+    @Inject
     private DragAndDropPage dragAndDropPage;
 
+    @Inject
     private BrowserHelper browserHelper;
 
-    public DragAndDropStepDef(DriverHelper helper,DragAndDropPage dragAndDropPage,BrowserHelper browserHelper){
+    @Inject
+    private DriverHelper driverHelper;
+
+    public DragAndDropStepDef(DriverHelper helper){
         this.driver = helper.getDriver();
-        this.dragAndDropPage=dragAndDropPage;
-        this.browserHelper=browserHelper;
     }
 
     @Then("I drag box A to box B")
     public void dragAtoB() {
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
+        driverHelper.getDriver().manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
         browserHelper.dragAndDropElements(dragAndDropPage.BoxA, dragAndDropPage.BoxB);
     }
 

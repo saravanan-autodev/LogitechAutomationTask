@@ -1,7 +1,10 @@
 package com.logitech.helper;
 
+import io.cucumber.guice.ScenarioScoped;
+
 import java.util.Locale;
 
+@ScenarioScoped
 public enum OSType {
     Windows, MacOS, Linux, Other;
     public static final  OSType DETECTED;

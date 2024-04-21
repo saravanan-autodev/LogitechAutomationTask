@@ -1,13 +1,19 @@
 package com.logitech.helper;
 
+import com.google.inject.Inject;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
 
+@ScenarioScoped
 public class BrowserHelper {
+
+    @Inject
+    DriverHelper helper;
 
     private WebDriver driver;
 
-    public BrowserHelper(DriverHelper helper) {
+    public BrowserHelper() {
         this.driver = helper.getDriver();
     }
 

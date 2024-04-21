@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>LogitechTask</artifactId>
+    <groupId>org.pratice</groupId>
+    <artifactId>LogitechTask-CucumberPicoContainer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -120,6 +120,13 @@
             <version>6.9.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-guice -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-guice</artifactId>
+            <version>7.12.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>

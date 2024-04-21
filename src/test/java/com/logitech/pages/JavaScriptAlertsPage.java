@@ -1,14 +1,19 @@
 package com.logitech.pages;
 
+import com.google.inject.Inject;
 import com.logitech.helper.DriverHelper;
+import io.cucumber.guice.ScenarioScoped;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
+@ScenarioScoped
 public class JavaScriptAlertsPage {
+
+    @Inject
+    DriverHelper helper;
 
     private WebDriver driver;
 
@@ -18,7 +23,7 @@ public class JavaScriptAlertsPage {
     @FindBy(xpath = "//*[@id=\"result\"]")
     WebElement message;
 
-    public JavaScriptAlertsPage(DriverHelper helper) {
+    public JavaScriptAlertsPage() {
         this.driver = helper.getDriver();
         PageFactory.initElements(driver, this);
     }

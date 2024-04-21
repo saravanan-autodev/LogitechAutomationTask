@@ -1,22 +1,22 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
 import com.logitech.pages.FramesPage;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 
+@ScenarioScoped
 public class FramesStepDef {
 
+    @Inject
     private FramesPage framesPage;
 
+    @Inject
     private BrowserHelper browserHelper;
-
-    public FramesStepDef(FramesPage framesPage, BrowserHelper browserHelper){
-        this.framesPage=framesPage;
-        this.browserHelper=browserHelper;
-    }
 
     @Then("I click on iFrame")
     public void clickOnIframe() {

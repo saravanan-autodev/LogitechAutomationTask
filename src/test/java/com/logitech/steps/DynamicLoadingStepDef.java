@@ -1,20 +1,20 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
 import com.logitech.pages.DynamicLoadingPage;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+@ScenarioScoped
 public class DynamicLoadingStepDef {
 
+    @Inject
     private DynamicLoadingPage dynamicLoadingPage;
-
-    public DynamicLoadingStepDef(DriverHelper helper, DynamicLoadingPage dynamicLoadingPage){
-        this.dynamicLoadingPage=dynamicLoadingPage;
-    }
 
     @Then("I click on {string} in Dynamic Loading page")
     public void clickOnExample2(String link) {

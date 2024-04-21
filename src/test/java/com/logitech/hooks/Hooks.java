@@ -1,22 +1,25 @@
 package com.logitech.hooks;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 
+@ScenarioScoped
 public class Hooks {
 
     private WebDriver driver;
 
+    @Inject
     private BrowserHelper browserHelper;
 
-    public Hooks(DriverHelper helper, BrowserHelper browserHelper) {
-        this.driver = helper.getDriver();
-        this.browserHelper = browserHelper;
-    }
+    @Inject
+    DriverHelper helper;
+
 
     @Before
     public void init() {

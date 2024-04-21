@@ -1,9 +1,11 @@
 package com.logitech.steps;
 
+import com.google.inject.Inject;
 import com.logitech.helper.BrowserHelper;
 import com.logitech.helper.DriverHelper;
 import com.logitech.helper.PropertyUtil;
 import com.logitech.pages.WindowPage;
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
@@ -12,18 +14,22 @@ import java.util.concurrent.TimeUnit;
 
 import static com.logitech.constants.BootStrapConstants.PAGE_LOAD_WAIT;
 
+@ScenarioScoped
 public class WindowStepDef {
 
     private WebDriver driver;
 
+    @Inject
     private WindowPage windowPage;
 
+    @Inject
     private BrowserHelper browserHelper;
 
-    public WindowStepDef(DriverHelper helper, WindowPage windowPage, BrowserHelper browserHelper){
+    @Inject
+    DriverHelper helper;
+
+    public WindowStepDef(DriverHelper helper){
         this.driver = helper.getDriver();
-        this.windowPage=windowPage;
-        this.browserHelper=browserHelper;
     }
 
     @Then("I click on {string} on windows page")

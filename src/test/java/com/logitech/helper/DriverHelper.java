@@ -1,5 +1,6 @@
 package com.logitech.helper;
 
+import io.cucumber.guice.ScenarioScoped;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import static com.logitech.constants.BootStrapConstants.*;
 
+@ScenarioScoped
 public class DriverHelper {
 
     private WebDriver driver;
